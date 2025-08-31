@@ -42,7 +42,7 @@ services:
       - DATABASE_URL=postgres://postgres:postgres@postgres:5432/medusa-store
       - REDIS_URL=redis://redis:6379
     env_file:
-      - .env
+      - .env.production
     volumes:
       - .:/app
       - /app/node_modules

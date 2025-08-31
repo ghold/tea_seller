@@ -17,5 +17,21 @@ module.exports = defineConfig({
       ssl: false,
       sslmode: "disable",
     },
-  }
+  },
+  modules: [
+    {
+      resolve: "@medusajs/medusa/file",
+      options: {
+        providers: [
+          {
+            resolve: "@medusajs/medusa/file-local",
+            id: "local",
+            options: {
+	      backend_url: process.env.FILE_BACKEND_URL || "http://localhost:9000/static"
+            },
+          },
+        ],
+      },
+    },
+  ],
 })

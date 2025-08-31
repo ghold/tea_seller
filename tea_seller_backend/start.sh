@@ -7,5 +7,11 @@ npx medusa db:migrate
 echo "Seeding database..."
 npm run seed || echo "Seeding failed, continuing..."
 
-echo "Starting Medusa development server..."
-npm run dev
+npx medusa build
+cd .medusa/server && npm install
+export NODE_ENV=production
+cp ../../.env.prodution .env
+npm run start
+
+#echo "Starting Medusa development server..."
+#npm run dev
